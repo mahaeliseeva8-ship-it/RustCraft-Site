@@ -9,6 +9,8 @@
 header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;background:#151515;position:sticky;top:0;z-index:2}
 .logo{font-size:24px;font-weight:800}.logo span{color:#d98b35}
 nav a{color:#bbb;text-decoration:none;margin-left:22px}
+.search{margin-left:auto;margin-right:18px}.search input{width:180px;padding:10px 13px;border-radius:7px;border:1px solid #444;background:#222;color:#fff;outline:none}.search input:focus{border-color:#d98b35}
+.hidden{display:none!important}
 .hero{min-height:72vh;padding:90px 7%;display:flex;align-items:center;background:linear-gradient(135deg,#171717,#292017)}
 .hero h1{font-size:clamp(42px,8vw,82px);margin:0 0 18px}.hero h1 span{color:#d98b35}
 .hero p{font-size:20px;color:#bbb;max-width:650px;line-height:1.6}
@@ -18,12 +20,13 @@ section{padding:65px 7%}.title{font-size:36px;margin-bottom:30px}
 .card{background:#1b1b1b;border:1px solid #333;border-radius:10px;padding:24px}.card b{font-size:20px}.card p{color:#aaa;line-height:1.5}
 .download{background:#1b1712;text-align:center;border-top:1px solid #4a3420;border-bottom:1px solid #4a3420}
 footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
-@media(max-width:650px){nav{display:none}.hero{min-height:65vh;padding-top:60px}}
+@media(max-width:650px){nav{display:none}.search input{width:130px}.hero{min-height:65vh;padding-top:60px}}
 </style>
 </head>
 <body>
 <header>
   <div class="logo">RUST<span>CRAFT</span></div>
+  <div class="search"><input id="search" type="search" placeholder="Поиск..." oninput="searchSite()"></div>
   <nav><a href="#features">Возможности</a><a href="#updates">Обновления</a><a href="#download">Скачать</a></nav>
 </header>
 
@@ -57,10 +60,18 @@ footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
 <section id="download" class="download">
   <div class="title">Скачать RustCraft</div>
   <p>Добавь аддон в Minecraft Bedrock 1.21.120.</p>
-  <a class="btn" href="#" onclick="alert('Сюда будет добавлена ссылка на .mcaddon');return false">СКАЧАТЬ .MCADDON</a>
+  <a class="btn" href="RustBuilding_V71_BUILDING_REAL_FIX_1.21.120.mcaddon" download="RustBuilding_V71_BUILDING_REAL_FIX_1.21.120.mcaddon">СКАЧАТЬ .MCADDON</a>
 </section>
 </main>
 
 <footer>© 2026 RustCraft • Minecraft Bedrock Addon</footer>
+<script>
+function searchSite(){
+  const q=document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('section .card').forEach(c=>{
+    c.classList.toggle('hidden', q && !c.innerText.toLowerCase().includes(q));
+  });
+}
+</script>
 </body>
 </html>
