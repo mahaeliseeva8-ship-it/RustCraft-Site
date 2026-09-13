@@ -21,13 +21,16 @@ section{padding:65px 7%}.title{font-size:36px;margin-bottom:30px}
 .download{background:#1b1712;text-align:center;border-top:1px solid #4a3420;border-bottom:1px solid #4a3420}
 footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
 @media(max-width:650px){nav{display:none}.search input{width:130px}.hero{min-height:65vh;padding-top:60px}}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.photo-card{background:#1b1b1b;border:1px solid #333;border-radius:10px;overflow:hidden;color:#ddd;font-weight:700}.photo-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}.photo-card div{padding:14px}
+@media(max-width:650px){.gallery{grid-template-columns:1fr}.photo-card img{aspect-ratio:16/9}}
 </style>
 </head>
 <body>
 <header>
   <div class="logo">RUST<span>CRAFT</span></div>
   <div class="search"><input id="search" type="search" placeholder="Поиск..." oninput="searchSite()"></div>
-  <nav><a href="#features">Возможности</a><a href="#updates">Обновления</a><a href="#download">Скачать</a></nav>
+  <nav><a href="#features">Возможности</a><a href="#gallery">Фото</a><a href="#updates">Обновления</a><a href="#download">Скачать</a></nav>
 </header>
 
 <main>
@@ -46,6 +49,18 @@ footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
     <div class="card"><b>🔨 Улучшения</b><p>Молоток для строительства и улучшения построек.</p></div>
     <div class="card"><b>📦 Хранение</b><p>Rust-стиль сундуков и удобное хранение предметов.</p></div>
     <div class="card"><b>💣 Рейды</b><p>Разрушение защищённых построек и рейдовые предметы.</p></div>
+  </div>
+</section>
+
+
+<section id="gallery">
+  <div class="title">Фото из игры</div>
+  <div class="gallery">
+    <div class="photo-card"><img src="images/menu-rust-building.jpg" alt="Меню Rust Building"><div>Меню Rust Building</div></div>
+    <div class="photo-card"><img src="images/straw-10hp.jpg" alt="Солома 10 HP"><div>Солома — 10 / 10 HP</div></div>
+    <div class="photo-card"><img src="images/stone-500hp.jpg" alt="Камень 500 HP"><div>Камень — 500 / 500 HP</div></div>
+    <div class="photo-card"><img src="images/sheet-metal-1000hp.jpg" alt="Листовой металл 1000 HP"><div>Листовой металл — 1000 / 1000 HP</div></div>
+    <div class="photo-card"><img src="images/armored-2000hp.jpg" alt="Броня 2000 HP"><div>Броня — 2000 / 2000 HP</div></div>
   </div>
 </section>
 
