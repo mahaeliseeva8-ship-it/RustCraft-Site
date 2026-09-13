@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RustCraft — Minecraft Rust Addon</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111;color:#eee;font-family:Arial,sans-serif}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;background:#151515;position:sticky;top:0;z-index:2}
+.logo{font-size:24px;font-weight:800}.logo span{color:#d98b35}
+nav a{color:#bbb;text-decoration:none;margin-left:22px}
+.hero{min-height:72vh;padding:90px 7%;display:flex;align-items:center;background:linear-gradient(135deg,#171717,#292017)}
+.hero h1{font-size:clamp(42px,8vw,82px);margin:0 0 18px}.hero h1 span{color:#d98b35}
+.hero p{font-size:20px;color:#bbb;max-width:650px;line-height:1.6}
+.btn{display:inline-block;margin-top:20px;padding:15px 24px;background:#d98b35;color:#111;text-decoration:none;font-weight:800;border-radius:7px}
+section{padding:65px 7%}.title{font-size:36px;margin-bottom:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#1b1b1b;border:1px solid #333;border-radius:10px;padding:24px}.card b{font-size:20px}.card p{color:#aaa;line-height:1.5}
+.download{background:#1b1712;text-align:center;border-top:1px solid #4a3420;border-bottom:1px solid #4a3420}
+footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
+@media(max-width:650px){nav{display:none}.hero{min-height:65vh;padding-top:60px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">RUST<span>CRAFT</span></div>
+  <nav><a href="#features">Возможности</a><a href="#updates">Обновления</a><a href="#download">Скачать</a></nav>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <h1>Rust в <span>Minecraft</span></h1>
+    <p>Большой Rust-стиль аддон для Minecraft Bedrock. Строительство, улучшения, хранение и рейды — прямо в твоём мире.</p>
+    <a class="btn" href="#download">СКАЧАТЬ АДДОН</a>
+  </div>
+</section>
+
+<section id="features">
+  <div class="title">Возможности</div>
+  <div class="cards">
+    <div class="card"><b>🧱 Строительство</b><p>Система строительства в стиле Rust с размещением строительных элементов.</p></div>
+    <div class="card"><b>🔨 Улучшения</b><p>Молоток для строительства и улучшения построек.</p></div>
+    <div class="card"><b>📦 Хранение</b><p>Rust-стиль сундуков и удобное хранение предметов.</p></div>
+    <div class="card"><b>💣 Рейды</b><p>Разрушение защищённых построек и рейдовые предметы.</p></div>
+  </div>
+</section>
+
+<section id="updates">
+  <div class="title">Последнее обновление</div>
+  <div class="card">
+    <b>Версия 1.0 • Minecraft Bedrock 1.21.120</b>
+    <p>Первая версия сайта проекта RustCraft. Здесь будут появляться новые блоки, предметы, модели и исправления.</p>
+  </div>
+</section>
+
+<section id="download" class="download">
+  <div class="title">Скачать RustCraft</div>
+  <p>Добавь аддон в Minecraft Bedrock 1.21.120.</p>
+  <a class="btn" href="#" onclick="alert('Сюда будет добавлена ссылка на .mcaddon');return false">СКАЧАТЬ .MCADDON</a>
+</section>
+</main>
+
+<footer>© 2026 RustCraft • Minecraft Bedrock Addon</footer>
+</body>
+</html>
