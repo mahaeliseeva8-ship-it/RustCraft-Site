@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RustCraft — Minecraft Rust Addon</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111;color:#eee;font-family:Arial,sans-serif}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;background:#151515;position:sticky;top:0;z-index:2}
+.logo{font-size:24px;font-weight:800}.logo span{color:#d98b35}
+nav a{color:#bbb;text-decoration:none;margin-left:22px}
+.search{margin-left:auto;margin-right:18px}.search input{width:180px;padding:10px 13px;border-radius:7px;border:1px solid #444;background:#222;color:#fff;outline:none}.search input:focus{border-color:#d98b35}
+.hidden{display:none!important}
+.hero{min-height:72vh;padding:90px 7%;display:flex;align-items:center;background:linear-gradient(135deg,#171717,#292017)}
+.hero h1{font-size:clamp(42px,8vw,82px);margin:0 0 18px}.hero h1 span{color:#d98b35}
+.hero p{font-size:20px;color:#bbb;max-width:650px;line-height:1.6}
+.btn{display:inline-block;margin-top:20px;padding:15px 24px;background:#d98b35;color:#111;text-decoration:none;font-weight:800;border-radius:7px}
+section{padding:65px 7%}.title{font-size:36px;margin-bottom:30px}
+.gallery{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.photo-card{padding:0;overflow:hidden}.photo-card img{display:block;width:100%;height:210px;object-fit:cover}.photo-card b{display:block;padding:18px 20px 20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#1b1b1b;border:1px solid #333;border-radius:10px;padding:24px}.card b{font-size:20px}.card p{color:#aaa;line-height:1.5}
+.music{background:#141414;text-align:center;border-top:1px solid #333;border-bottom:1px solid #333}.music-player{max-width:520px;margin:0 auto;background:#1b1b1b;border:1px solid #333;border-radius:10px;padding:24px}.music-btn{border:0;cursor:pointer;margin-top:10px;padding:14px 22px;background:#d98b35;color:#111;font-weight:800;border-radius:7px;font-size:16px}.download{background:#1b1712;text-align:center;border-top:1px solid #4a3420;border-bottom:1px solid #4a3420}
+footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
+@media(max-width:650px){nav{display:none}.search input{width:130px}.hero{min-height:65vh;padding-top:60px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">RUST<span>CRAFT</span></div>
+  <div class="search"><input id="search" type="search" placeholder="Поиск..." oninput="searchSite()"></div>
+  <nav><a href="#features">Возможности</a><a href="#gallery">Фото</a><a href="#music">Музыка</a><a href="#updates">Обновления</a><a href="#download">Скачать</a></nav>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <h1>Rust в <span>Minecraft</span></h1>
+    <p>Большой Rust-стиль аддон для Minecraft Bedrock. Строительство, улучшения, хранение и рейды — прямо в твоём мире.</p>
+    <a class="btn" href="#download">СКАЧАТЬ АДДОН</a>
+  </div>
+</section>
+
+<section id="features">
+  <div class="title">Возможности</div>
+  <div class="cards">
+    <div class="card"><b>🧱 Строительство</b><p>Система строительства в стиле Rust с размещением строительных элементов.</p></div>
+    <div class="card"><b>🔨 Улучшения</b><p>Молоток для строительства и улучшения построек.</p></div>
+    <div class="card"><b>📦 Хранение</b><p>Rust-стиль сундуков и удобное хранение предметов.</p></div>
+    <div class="card"><b>💣 Рейды</b><p>Разрушение защищённых построек и рейдовые предметы.</p></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="title">Фото из игры</div>
+  <div class="cards gallery">
+    <div class="card photo-card"><img src="menu-rust-building.jpg" alt="Меню Rust Building"><b>Меню Rust Building</b></div>
+    <div class="card photo-card"><img src="straw-10hp.jpg" alt="Солома 10 HP"><b>Солома — 10 / 10 HP</b></div>
+    <div class="card photo-card"><img src="stone-500hp.jpg" alt="Камень 500 HP"><b>Камень — 500 / 500 HP</b></div>
+    <div class="card photo-card"><img src="sheet-metal-1000hp.jpg" alt="Листовой металл 1000 HP"><b>Листовой металл — 1000 / 1000 HP</b></div>
+    <div class="card photo-card"><img src="armored-2000hp.jpg" alt="Броня 2000 HP"><b>Броня — 2000 / 2000 HP</b></div>
+  </div>
+</section>
+
+<section id="updates">
+  <div class="title">Последнее обновление</div>
+  <div class="card">
+    <b>Версия 1.0 • Minecraft Bedrock 1.21.120</b>
+    <p>Первая версия сайта проекта RustCraft. Здесь будут появляться новые блоки, предметы, модели и исправления.</p>
+  </div>
+</section>
+
+<section id="music" class="music">
+  <div class="title">Музыка</div>
+  <div class="music-player">
+    <p><b>🎵 Музыка из видео</b></p>
+    <audio id="bgMusic" controls loop preload="auto" style="width:100%;">
+      <source src="./music.mp3?v=2" type="audio/mpeg">
+      Твой браузер не поддерживает аудио.
+    </audio>
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">▶️ Включить музыку</button>
+    <p id="musicStatus" style="font-size:13px;color:#999;margin-top:12px;">Нажми ▶️ или кнопку выше</p>
+  </div>
+</section>
+
+<section id="download" class="download">
+  <div class="title">Скачать RustCraft</div>
+  <p>Добавь аддон в Minecraft Bedrock 1.21.120.</p>
+  <a class="btn" href="RustBuilding_V71_BUILDING_REAL_FIX_1.21.120.mcaddon" download="RustBuilding_V71_BUILDING_REAL_FIX_1.21.120.mcaddon">СКАЧАТЬ .MCADDON</a>
+</section>
+</main>
+
+<footer>© 2026 RustCraft • Minecraft Bedrock Addon</footer>
+<script>
+function searchSite(){
+  const q=document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('section .card').forEach(c=>{
+    c.classList.toggle('hidden', q && !c.innerText.toLowerCase().includes(q));
+  });
+}
+function toggleMusic(){
+  const a=document.getElementById('bgMusic');
+  const b=document.getElementById('musicBtn');
+  const s=document.getElementById('musicStatus');
+  if(a.paused){
+    a.play().then(()=>{
+      b.textContent='⏸️ Выключить музыку';
+      s.textContent='Музыка играет 🔊';
+    }).catch(()=>{
+      s.textContent='Не удалось запустить. Нажми ▶️ на аудиоплеере.';
+    });
+  }else{
+    a.pause();
+    b.textContent='▶️ Включить музыку';
+    s.textContent='Музыка выключена';
+  }
+}
+document.getElementById('bgMusic').addEventListener('play',()=>{
+  document.getElementById('musicBtn').textContent='⏸️ Выключить музыку';
+  document.getElementById('musicStatus').textContent='Музыка играет 🔊';
+});
+document.getElementById('bgMusic').addEventListener('pause',()=>{
+  document.getElementById('musicBtn').textContent='▶️ Включить музыку';
+});
+document.getElementById('bgMusic').addEventListener('error',()=>{
+  document.getElementById('musicStatus').textContent='Ошибка: music.mp3 не найден.';
+});
+</script>
+</body>
+</html>
