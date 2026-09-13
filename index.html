@@ -19,7 +19,7 @@ section{padding:65px 7%}.title{font-size:36px;margin-bottom:30px}
 .gallery{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.photo-card{padding:0;overflow:hidden}.photo-card img{display:block;width:100%;height:210px;object-fit:cover}.photo-card b{display:block;padding:18px 20px 20px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
 .card{background:#1b1b1b;border:1px solid #333;border-radius:10px;padding:24px}.card b{font-size:20px}.card p{color:#aaa;line-height:1.5}
-.download{background:#1b1712;text-align:center;border-top:1px solid #4a3420;border-bottom:1px solid #4a3420}
+.music{background:#141414;text-align:center;border-top:1px solid #333;border-bottom:1px solid #333}.music-player{max-width:520px;margin:0 auto;background:#1b1b1b;border:1px solid #333;border-radius:10px;padding:24px}.music-btn{border:0;cursor:pointer;margin-top:10px;padding:14px 22px;background:#d98b35;color:#111;font-weight:800;border-radius:7px;font-size:16px}.download{background:#1b1712;text-align:center;border-top:1px solid #4a3420;border-bottom:1px solid #4a3420}
 footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
 @media(max-width:650px){nav{display:none}.search input{width:130px}.hero{min-height:65vh;padding-top:60px}}
 </style>
@@ -28,7 +28,7 @@ footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
 <header>
   <div class="logo">RUST<span>CRAFT</span></div>
   <div class="search"><input id="search" type="search" placeholder="Поиск..." oninput="searchSite()"></div>
-  <nav><a href="#features">Возможности</a><a href="#updates">Обновления</a><a href="#download">Скачать</a></nav>
+  <nav><a href="#features">Возможности</a><a href="#gallery">Фото</a><a href="#music">Музыка</a><a href="#updates">Обновления</a><a href="#download">Скачать</a></nav>
 </header>
 
 <main>
@@ -69,6 +69,17 @@ footer{text-align:center;padding:30px;color:#777;border-top:1px solid #333}
   </div>
 </section>
 
+<section id="music" class="music">
+  <div class="title">Музыка</div>
+  <div class="music-player">
+    <p>Музыка из видео</p>
+    <audio id="bgMusic" loop preload="metadata">
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵 Включить музыку</button>
+  </div>
+</section>
+
 <section id="download" class="download">
   <div class="title">Скачать RustCraft</div>
   <p>Добавь аддон в Minecraft Bedrock 1.21.120.</p>
@@ -83,6 +94,17 @@ function searchSite(){
   document.querySelectorAll('section .card').forEach(c=>{
     c.classList.toggle('hidden', q && !c.innerText.toLowerCase().includes(q));
   });
+}
+function toggleMusic(){
+  const a=document.getElementById('bgMusic');
+  const b=document.getElementById('musicBtn');
+  if(a.paused){
+    a.play();
+    b.textContent='⏸️ Выключить музыку';
+  }else{
+    a.pause();
+    b.textContent='🎵 Включить музыку';
+  }
 }
 </script>
 </body>
